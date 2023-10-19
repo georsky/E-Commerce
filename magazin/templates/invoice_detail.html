@@ -1,0 +1,12 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block mainblock %}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/invoice_detail.css' %}">
+
+  <h1 class="invoice-detail-title">Invoice Detail</h1>
+  <p class="invoice-id">Invoice ID: {{ invoice.id }}</p>
+  <a href="{{ invoice.pdf.url }}" download class="download-pdf-button">Download PDF</a>
+  <a href="{% url 'invoice_list' %}" class="back-to-list-button">Back to Invoice List</a>
+
+{% endblock mainblock %}

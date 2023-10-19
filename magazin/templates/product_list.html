@@ -1,0 +1,56 @@
+{% extends "home.html" %}
+{% include 'navbar.html' %}
+{% load static %}
+{% block mainblock %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/product_list.css' %}/"> 
+
+<h1> LABEL.M Official Haircare Product of London Fashion Week</h1>
+
+<div class="category-container">
+    {% load category_tags %}
+    <form method="get" id="filter-form">
+        <ul class="categories">
+            {% get_categories as categories %}
+            {% for category in categories %}
+                <li>
+                    <label class="category-label">
+                        <input type="checkbox" name="category" value="{{ category.id }}" id="{{ category.id }}" {% if category.id in selected_categories %}checked{% endif %} class="category-checkbox">
+                        {{ category.name }}
+                    </label>
+                </li>
+            {% endfor %}
+        </ul>
+    </form>
+</div>
+
+<div class="product-list-container">
+    <div class="in-category">
+        {% for product in products %}
+            <div class="prod-category" data-categories="{{ product.category_id }}">
+                <div class="category">
+                    <h1>{{ product.category }}</h1>
+                </div>
+
+                <div class="product-info">
+                    {% if product.image %}
+                        <img class="pozeproduse" src="{{ product.image.url }}">
+                    {% else %}
+                        <div>Unknown product</div>
+                    {% endif %}
+
+                    <div class="details">
+                        <p>{{ product.name }}</p>
+                        <p>{{ product.description }}</p>
+                        <p>{{ product.price }} Lei</p>
+                        <a href="{% url 'add_to_cart' product.id %}" class="add-to-cart-button">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="{% static 'js/filter.js' %}"></script>
+
+{% endblock mainblock %}

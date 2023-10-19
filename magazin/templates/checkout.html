@@ -1,0 +1,113 @@
+{% extends "home.html" %}
+{% include navbar.html %}
+{% load static %}
+{% load total_price %}
+{% block mainblock %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/checkout.css' %}">
+
+<div class="container">
+  <h1>Checkout</h1>
+  <div class="checkout-content">
+    <div class="customer-information">
+      <h2>Customer Information</h2>
+      <form method="post" action="{% url 'checkout' %}">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="form-group">
+          <label for="{{ form.full_name.id }}">Full Name</label>
+          {{ form.full_name }}
+        </div>
+        <div class="form-group">
+          <label for="{{ form.city.id }}">City</label>
+          {{ form.city }}
+        </div>
+        <div class="form-group">
+          <label for="{{ form.email.id }}">Email</label>
+          {{ form.email }}
+        </div>
+        <div class="form-group">
+          <label for="{{ form.phone.id }}">Phone</label>
+          <input type="tel" id="{{ form.phone.id }}" name="{{ form.phone.name }}" pattern="[0-9]{10,}" required placeholder="Enter your phone number">
+        </div>
+        <div class="form-group">
+          <label for="{{ form.shipping_address.id }}">Shipping Address</label>
+          {{ form.shipping_address }}
+        </div>
+      
+    </div>
+  
+    <div class="order-summary">
+      <h2>Order Summary</h2>
+      <ul class="cart-items">
+        {% for cart_item in cart_items %}
+          <li class="cart-item">
+            <img src="{{ cart_item.product.image.url }}" alt="{{ cart_item.product.name }}">
+            <div class="cart-item-details">
+              <h3>{{ cart_item.product.name }}</h3>
+              <p>Quantity: {{ cart_item.quantity }}</p>
+              <p>Price per item: {{ cart_item.product.price }} Lei</p>
+              <p>Subtotal: {{ cart_item.subtotal }} Lei</p>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  
+    <div class="shipping-payment">
+      <h2>Shipping Method</h2>
+          <div class="form-group">
+            <select id="shipping-method" name="shipping-method">
+              <option value="standard" data-cost="15">Standard 5-7 days - 15 Lei</option>
+              <option value="express" data-cost="27">Express 2-3 days - 27 Lei</option>
+              <option value="overnight" data-cost="50">Overnight - 50 Lei</option>
+            </select>
+          </div>
+      
+      <h2>Payment Method</h2>
+      <div class="form-group">
+        {{ form.payment_method }}
+      </div>
+      <p class="total-price">Total Price: {{ total_price }} Lei</p>
+      {% if error_message %}
+      <div class="alert alert-danger" style="color: red; font-size: 16px;">
+      {{ error_message }}
+      </div>
+      {% endif %}
+      <button type="submit" class="btn btn-primary">Place Order</button>
+    </div>
+  </div>
+  </form>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const shippingMethodSelect = document.getElementById("shipping-method");
+    const totalPriceElement = document.querySelector(".total-price");
+
+    // Shipping cost lookup based on shipping method value
+    const shippingCosts = {
+      'standard': 15,
+      'express': 27,
+      'overnight': 50
+    };
+
+    // Function to update the total price
+    function updateTotalPrice() {
+      const selectedShippingMethod = shippingMethodSelect.value;
+      const shippingCost = shippingCosts[selectedShippingMethod] || 0; 
+      const baseTotalPrice = parseFloat("{{ total_price }}");
+      const newTotalPrice = baseTotalPrice + shippingCost;
+      totalPriceElement.textContent = `Total Price: ${newTotalPrice.toFixed(2)} Lei`; // Format as currency
+    }
+
+    // Listen for changes in the shipping method select
+    shippingMethodSelect.addEventListener("change", updateTotalPrice);
+
+    // Initial calculation when the page loads
+    updateTotalPrice();
+  });
+</script>
+
+
+{% endblock mainblock %}

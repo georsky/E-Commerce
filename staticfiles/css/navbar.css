@@ -1,0 +1,83 @@
+.navbar {
+  text-align: center;
+  padding: 13px;
+  background-color: gold;
+  box-shadow: 0 0 0 0px gold;
+  border-radius: 10px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0.2%;
+  padding: 0.2%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar li {
+  margin: 0 20px;
+}
+
+.navbar li a {
+  color: #333;
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 5px 6px;
+  border-radius: 25%;
+  transition: background-color 0.3s ease;
+}
+
+.navbar li a:hover {
+  background-color: #f0f0f0;
+  color: #333; /* Changed color to a darker shade */
+  border-radius: 10px; /* Added rounded corners */
+  padding: 8px;
+  transition: background-color 0.3s, color 0.3s, border-radius 0.3s; /* Added transition for smoother effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added subtle shadow for depth */
+}
+
+
+/* Centering */
+.center {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.left-items {
+  display: flex;
+  gap: 20px; /* Adjust the gap between the left-aligned items */
+}
+
+/* Right-aligned items */
+.right-items {
+  display: flex;
+  gap: 10px; /* Adjust the gap between the right-aligned items */
+}
+
+/* CSS */
+.cart-item {
+  display: flex;
+  align-items: center; /* Vertically align the content */
+  position: relative;
+}
+
+.cart-link {
+  text-decoration: none;
+  color: #333; /* Change the color to your preference */
+  display: flex;
+  align-items: center;
+}
+
+.cart-count {
+  background-color: #ff5733; /* Change the background color to your preference */
+  color: #fff; /* Change the text color to your preference */
+  border-radius: 50%;
+  padding: 4px 8px;
+  font-size: 14px; /* Adjust the font size as needed */
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}

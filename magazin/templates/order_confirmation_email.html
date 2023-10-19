@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+</head>
+<body>
+    <div class="container" style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff; border: 1px solid #e0e0e0; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <h1 style="font-size: 24px; margin-bottom: 20px; color: #333;">Order Confirmation</h1>
+        <div class="order-info" style="background-color: #f0f0f0; padding: 10px; margin-bottom: 20px;">
+            <p style="font-size: 16px; margin: 0; color: #333;">Thank you, <b>#{{ order.full_name }}</b>, for your order <b>#{{ order.id }}</b>.</p>
+            <p style="font-size: 16px; margin: 0; color: red;">Total Price: {{ order.total_price }} Lei.</p>
+        </div>
+        <div class="products">
+            <h2 style="font-size: 18px; margin-bottom: 10px; color: #333;">Ordered Products:</h2>
+            <ul>
+                {% for product_item in product_info %}
+                 <li class="product" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; background-color: #ffffff;">
+                    <p style="font-size: 14px; margin: 0; color: #555;"><b>{{ product_item.name }}</b></p>
+                    <p style="font-size: 14px; margin: 0; color: #555;">Price: {{ product_item.price }} Lei</p>
+                    <p style="font-size: 14px; margin: 0; color: #555;">Quantity Ordered: {{ product_item.quantity_ordered }}</p>
+                    <p style="font-size: 14px; margin: 0; color: #555;">Subtotal: {{ product_item.subtotal }} Lei</p>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

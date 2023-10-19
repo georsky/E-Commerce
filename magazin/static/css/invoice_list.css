@@ -1,0 +1,35 @@
+/* Add this CSS to your external CSS file or <style> tag in your HTML */
+
+.invoice-list-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .invoice-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .invoice-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .invoice-link {
+    text-decoration: none;
+    color: #ff0505;
+    font-weight: bold;
+    font-size: larger;
+  }
+  
+  .invoice-date-label {
+    font-weight: bold;
+  }
+  
+  .no-invoices {
+    color: #888;
+    font-style: italic;
+  }
+  

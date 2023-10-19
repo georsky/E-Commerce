@@ -1,0 +1,118 @@
+.cart-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-item img {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 5px;
+  }
+  
+  .cart-item-details {
+    flex-grow: 1;
+  }
+  
+  .cart-item-details h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+
+  .cart-item-details a {
+    text-decoration: none;
+    margin: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .unknown-product {
+    font-style: italic;
+    color: #888;
+  }
+  
+  .order-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.total-label {
+    text-align: left;
+    font-weight: bold;
+    font-size: large;
+}
+
+.total-amount {
+    color: #ff0000;
+    font-weight: bold;
+    text-align: left;
+    font-size: large;
+}
+
+.checkout-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    
+}
+
+  .cart-button {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: rgb(0, 0, 0); /* Customize the background color */
+    color: #ffffff; /* Customize the text color */
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 5px;
+}
+.cart-button:hover {
+    background-color: #007bff; /* Customize the hover background color */
+}
+
+  /* Add the styles for the checkout button */
+  .checkout-button {    
+    background-color: gold;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  /* Add the styles for the hover state of the checkout button */
+  .checkout-button:hover {
+    background-color: #017cff;
+  }
+
+  /* CSS in an external file or <style> block in HTML */
+.price {
+  color: red;
+  font-weight: bold;
+  /* Add any other styling you want */
+}
+
+.subtotal {
+  color: red;
+  font-weight: bold;
+  /* Add any other styling you want */
+}

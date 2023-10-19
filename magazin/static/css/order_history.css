@@ -1,0 +1,72 @@
+/* Order History Page Styles */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.order-box {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    
+}
+
+
+strong {
+    font-weight: bold;
+}
+
+.product-image {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+    max-width: 100px; /* Resizing product images */
+    max-height: 100px;
+}
+
+p {
+    margin: 5px 0;
+}
+
+/* Style for the "View Order" link */
+.view-order-link {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.view-order-link:hover {
+    background-color: #0056b3;
+}
+
+
+.red-text {
+    color: red;
+}

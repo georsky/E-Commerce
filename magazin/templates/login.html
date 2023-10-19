@@ -1,0 +1,33 @@
+{% extends "home.html" %}
+{% include navbar.html %}
+{% load static %}
+{% block mainblock %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}/"> 
+
+<h2>Login</h2>
+<div class="login-container">
+    <div class="login-form">
+        
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+            {% endif %}
+        <form method="post">
+            {% csrf_token %}
+        <div>
+            <label for="id_username">Username:</label>
+            <input type="text" id="id_username" name="username" required>
+        </div>
+        <div>
+            <label for="id_password">Password:</label>
+            <input type="password" id="id_password" name="password" required>
+        </div>
+        <button type="submit">Login</button>
+        </form>
+    </div>
+</div>
+{% endblock mainblock %}

@@ -1,0 +1,19 @@
+{% extends "home.html" %}
+{% include navbar.html %}
+{% load static %}
+{% block mainblock %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+
+
+    <h1>Welcome, {{ user.username }}!</h1>
+
+
+    <h2>Quick Links</h2>
+    <ul>
+        <li><a href="{% url 'order_history' %}">Order History</a></li>
+        <li><a href="{% url 'invoice_list' %}">Invoices</a></li>
+    </ul>
+
+
+{% endblock mainblock %}

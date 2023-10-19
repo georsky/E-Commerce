@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Label.M Romania</title>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    
+
+    {% load static%}
+     <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    {% block mainblock %}
+        
+        <video autoplay="True" loop="loop" id="video" onclick="this.paused?this.play():this.pause();"><source src="https://cdn.shopify.com/videos/c/o/v/a5a26a250350433a9de779eeb50acfef.mp4" type="video/mp4"><source src="" type="video/ogg"></video></section>
+
+
+    {% endblock mainblock %}
+
+</body>
+<footer>
+{% include 'social.html' %}
+</footer>
+</html>

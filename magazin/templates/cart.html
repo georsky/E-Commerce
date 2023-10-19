@@ -1,0 +1,41 @@
+{% extends "home.html" %}
+{% include navbar.html %}
+{% load static %}
+{% block mainblock %}
+{% load total_price %}
+
+     <link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}/">
+
+<h1>CART</h1>
+{% for cart_item in cart_items %}
+    <div class="cart-item">
+        <h4>{{ cart_item.product.name }}</h4>
+        {% if cart_item.product.image %}
+            <img src="{{ cart_item.product.image.url }}" alt="{{ cart_item.product.name }}">
+        {% else %}
+            <div class="unknown-product">Unknown product</div>
+        {% endif %}
+        <div class="cart-item-details">
+            <a><b>Price: </b><span class="price">{{ cart_item.product.price }}</span></a>
+            <a><b>Subtotal: </b><span class="subtotal">{{ cart_item.subtotal }}</span></a>
+            <a href="{% url 'add_to_cart' cart_item.product.id %}" class="cart-button">+</a>
+            <a><b>{{ cart_item.quantity }}</b></a>
+            <a href="{% url 'remove_from_cart' cart_item.product.id %}" class="cart-button">-</a>
+        </div>
+    </div>
+{% empty %}
+    <p>Your cart is empty.</p>
+{% endfor %}
+
+{% if cart_items %}
+    <div class="order-total">
+        <div>
+            <span class="total-label">Total Price:</span>
+            <span class="total-amount">{{ cart_items|total_price }} Lei</span>
+        </div>
+        <a href="{% url 'checkout' %}" class="checkout-button">Proceed to Checkout</a>
+    </div>
+{% endif %}
+
+
+{% endblock mainblock %}

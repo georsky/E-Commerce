@@ -1,0 +1,44 @@
+/*  Style for the title */
+.invoice-detail-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Style for the invoice ID */
+  .invoice-id {
+    font-weight: bold;
+    font-size: 25px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  /* Style for the Download PDF button */
+  .download-pdf-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .download-pdf-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .back-to-list-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #555;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .back-to-list-button:hover {
+    background-color: #333;
+  }

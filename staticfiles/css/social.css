@@ -1,0 +1,44 @@
+
+.join-us-section {
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: gold;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 5px; /* Add margin at the top to create space from content */
+}
+
+.join-us-section h1 {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: #f0f0f0;
+}
+
+.social-icons img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+}

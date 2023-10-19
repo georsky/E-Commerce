@@ -1,0 +1,37 @@
+{% extends "home.html" %}
+{% include navbar.html %}
+{% load static %}
+{% block mainblock %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/order_history.css' %}">
+
+<div class="container">
+    <h1>Welcome, {{ user.username }}!</h1>
+
+    <h2>Your Orders:</h2>
+    {% if orders_with_products %}
+    <ul>
+        {% for order_with_products in orders_with_products %}
+            <li class="order-box">
+                <strong>Order ID:</strong> <span class="red-text">{{ order_with_products.order.id }}</span><br>
+                <strong>Total Price:</strong> <span class="red-text"> {{ order_with_products.order.total_price }}Lei</span><br>
+                <strong>Shipping Address:</strong> {{ order_with_products.order.shipping_address }}<br>
+                <strong>Payment Method:</strong> {{ order_with_products.order.payment_method }}<br>
+                <strong>Ordered Products:</strong>
+                <ul>
+                    {% for order_item in order_with_products.order.orderitem_set.all %}
+                        <li>
+                        <img src="{{ order_item.product.image.url }}" alt="{{ order_item.product.name }}" class="product-image">
+                        {{ order_item.product.name }} - Price: {{ order_item.product.price }} Lei<span>
+                        - Quantity Ordered: {{ order_item.quantity }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>You have no orders yet.</p>
+    {% endif %}
+</div>
+{% endblock mainblock %}
